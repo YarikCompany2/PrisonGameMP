@@ -12,5 +12,5 @@ FetchContent_MakeAvailable(enet)
 target_include_directories(enet PUBLIC "${enet_SOURCE_DIR}/include")
 
 if(WIN32)
-    target_link_libraries(enet PUBLIC ws2_32 winmm)
+    target_link_libraries(enet ws2_32 winmm)
 endif()
