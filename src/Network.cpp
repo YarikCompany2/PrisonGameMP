@@ -1,5 +1,5 @@
-#include "Network.hpp"
 #include <enet/enet.h>
+#include "Network.hpp"
 #include <cstring>
 #include <iostream>
 
