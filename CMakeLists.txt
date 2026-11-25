@@ -22,3 +22,31 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib enet)
+
+if(WIN32)
+    target_link_libraries(${PROJECT_NAME} PRIVATE
+        winmm
+        ws2_32
+        opengl32
+        gdi32
+        -static
+        -static-libgcc
+        -static-libstdc++
+    )
+endif()
+
+if(EXISTS "${CMAKE_SOURCE_DIR}/assets")
+    if(WIN32)
+        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory
+            "${CMAKE_SOURCE_DIR}/assets"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>/assets"
+        )
+    else()
+        file(CREATE_LINK
+            "${CMAKE_SOURCE_DIR}/assets"
+            "${CMAKE_BINARY_DIR}/assets"
+            SYMBOLIC
+        )
+    endif()
+endif()
