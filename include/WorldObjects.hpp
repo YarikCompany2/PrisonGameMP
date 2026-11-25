@@ -30,7 +30,7 @@ struct MapObject {
     int dir;
     int currentFrame;
     int state;
-    int integrity;     // 100 = цілий, 0 = викручений/перерізаний
+    int integrity;
     float animTimer;
     bool isOpen;
     bool isSolid;

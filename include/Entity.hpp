@@ -1,4 +1,5 @@
 #pragma once
+#include "Tilemap.hpp"
 #include "raylib.h"
 #include "Weapon.hpp"
 #include "Outfit.hpp"
@@ -105,7 +106,7 @@ public:
         transform.size = (Vector2){ 28.0f, 28.0f };
         color = WHITE;
 
-        currentLayer = 1; // Tilemap::LAYER_GROUND
+        currentLayer = Tilemap::LAYER_GROUND;
         isNoclip = false;
 
         hasHealth = false;
