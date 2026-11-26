@@ -1,3 +1,10 @@
+#if defined(_WIN32)
+    #define WIN32_LEAN_AND_MEAN
+    #define NOGDI
+    #define NOUSER
+    #define NOMINMAX
+#endif
+
 #include <enet/enet.h>
 #include "Network.hpp"
 #include <cstring>
